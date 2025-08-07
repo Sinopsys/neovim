@@ -76,6 +76,37 @@ map("n", "[c", ":lua require('decisive').align_csv_prev_col()<cr>")
 map("n", "]c", ":lua require('decisive').align_csv_next_col()<cr>")
 
 
+
+-- F-keys
+vim.keymap.set("n", "<F1>", "<Esc>")              -- disable help
+vim.keymap.set("i", "<F1>", "<Esc>")
+vim.keymap.set("v", "<F1>", "<Esc>")
+
+vim.keymap.set("n", "<F2>", ":bprevious<CR>")
+vim.keymap.set("n", "<F3>", ":bnext<CR>")
+vim.keymap.set("n", "<F4>", ":buffers<CR>")
+vim.keymap.set("n", "<F5>", ":%y+<CR>")
+vim.keymap.set("n", "<F6>", ':echo expand("%")<CR>')
+vim.keymap.set("n", "<F7>", ":pwd<CR>")
+vim.keymap.set('n', '<F12>', '<Cmd>BufferClose<CR>')
+vim.keymap.set('n', '<F10>', '<Cmd>BufferRestore<CR>')
+
+-- Window navigation (Ctrl-hjkl)
+vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
+vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
+vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
+vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
+
+-- Leader is space in the distro, but you can still use comma if you want
+vim.g.mapleader = ","
+
+-- optional: keep your old spell toggles
+vim.keymap.set("n", "<F8>", ":setlocal spell! spelllang=en_us<CR>")
+vim.keymap.set("n", "<C-F8>", ":setlocal spell! spelllang=ru_ru<CR>")
+vim.keymap.set("n", "<F9>", ":set colorcolumn=80<CR>")
+vim.keymap.set("n", "<C-F9>", ":set colorcolumn=0<CR>")
+
+
 map("n", "<leader>H", function() --toggle htop in term
     _G.htop:toggle()
 end)

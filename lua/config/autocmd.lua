@@ -97,12 +97,13 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 
+-- I actually changed this to false (Kirill)
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
    pattern = "*",
    group = augroup,
    callback = function()
       if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
-         vim.opt.relativenumber = true
+         vim.opt.relativenumber = false
       end
    end,
 })

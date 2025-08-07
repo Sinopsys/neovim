@@ -29,7 +29,7 @@ Plug('goolord/alpha-nvim') --pretty startup
 Plug('nvim-treesitter/nvim-treesitter') --improved syntax
 Plug('mfussenegger/nvim-lint') --async linter
 Plug('nvim-tree/nvim-tree.lua') --file explorer
-Plug('windwp/nvim-autopairs') --autopairs 
+Plug('windwp/nvim-autopairs') --autopairs
 Plug('lewis6991/gitsigns.nvim') --git
 Plug('numToStr/Comment.nvim') --easier comments
 Plug('norcalli/nvim-colorizer.lua') --color highlight
@@ -39,8 +39,19 @@ Plug('ron-rs/ron.vim') --ron syntax highlighting
 Plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
 Plug('emmanueltouzery/decisive.nvim') --view csv files
 Plug('folke/twilight.nvim') --surrounding dim
+Plug('smoka7/hop.nvim') -- easy motion with leader and letter
+Plug('kylechui/nvim-surround') -- surrounding brackets, other ...
+-- completion engine
+Plug('ms-jpq/coq_nvim',          {['branch'] = 'coq'})
+-- 9 000+ snippets
+Plug('ms-jpq/coq.artifacts',     {['branch'] = 'artifacts'})
+-- extra sources (optional but handy)
+Plug('ms-jpq/coq.thirdparty',    {['branch'] = '3p'})
+Plug('cappyzawa/trim.nvim')
 
 vim.call('plug#end')
+
+vim.g.coq_settings = { auto_start = 'shut-up' }
 
 -- move config and plugin config to alternate files
 require("config.theme")
@@ -64,8 +75,9 @@ require("plugins.render-markdown")
 -- require("plugins.treesitter")
 -- require("plugins.twilight")
 -- require("plugins.which-key")
+require("plugins.trim")
 
-vim.defer_fn(function() 
+vim.defer_fn(function()
 		--defer non-essential configs,
 		--purely for experimental purposes:
 		--this only makes a difference of +-10ms on initial startup
@@ -79,3 +91,4 @@ require("plugins.which-key")
 end, 100)
 
 load_theme()
+
