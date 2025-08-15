@@ -127,3 +127,17 @@ map("n", "<leader>nn", function() --toggle relative vs absolute line numbers
 		vim.wo.relativenumber = true
 	end
 end)
+
+-- Here I just remove COQ's <C-h> mapping and force default window navigation
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.defer_fn(function()
+      pcall(vim.api.nvim_del_keymap, 'n', '<C-h>')
+      pcall(vim.api.nvim_del_keymap, 'i', '<C-h>')
+      pcall(vim.api.nvim_del_keymap, 'v', '<C-h>')
+      vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
+      vim.keymap.set("i", "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
+      vim.keymap.set("v", "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
+    end, 100)
+  end,
+})
