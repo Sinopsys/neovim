@@ -128,10 +128,12 @@ map("n", "<leader>nn", function() --toggle relative vs absolute line numbers
 	end
 end)
 
--- Here I just remove COQ's <C-h> mapping and force default window navigation
+
+-- Force window navigation to override COQ's <C-h> mapping
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.defer_fn(function()
+      -- Remove COQ's <C-h> mapping and force our window navigation
       pcall(vim.api.nvim_del_keymap, 'n', '<C-h>')
       pcall(vim.api.nvim_del_keymap, 'i', '<C-h>')
       pcall(vim.api.nvim_del_keymap, 'v', '<C-h>')
@@ -139,5 +141,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
       vim.keymap.set("i", "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
       vim.keymap.set("v", "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
     end, 100)
+  end,
+})
+
+-- Direct override with buffer-local scope to beat COQ
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, buffer = true })
+    vim.keymap.set("i", "<C-h>", "<C-w>h", { noremap = true, silent = true, buffer = true })
+    vim.keymap.set("v", "<C-h>", "<C-w>h", { noremap = true, silent = true, buffer = true })
   end,
 })
