@@ -36,7 +36,7 @@ Plug('norcalli/nvim-colorizer.lua') --color highlight
 Plug('ibhagwan/fzf-lua') --fuzzy finder and grep
 Plug('numToStr/FTerm.nvim') --floating terminal
 Plug('ron-rs/ron.vim') --ron syntax highlighting
-Plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
+-- Plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
 Plug('emmanueltouzery/decisive.nvim') --view csv files
 Plug('folke/twilight.nvim') --surrounding dim
 Plug('smoka7/hop.nvim') -- easy motion with leader and letter
@@ -48,6 +48,7 @@ Plug('ms-jpq/coq.artifacts',     {['branch'] = 'artifacts'})
 -- extra sources (optional but handy)
 Plug('ms-jpq/coq.thirdparty',    {['branch'] = '3p'})
 Plug('cappyzawa/trim.nvim')
+
 
 vim.call('plug#end')
 
@@ -71,7 +72,7 @@ require("plugins.gitsigns")
 require("plugins.lualine")
 require("plugins.nvim-lint")
 -- require("plugins.nvim-tree")
-require("plugins.render-markdown")
+-- require("plugins.render-markdown")
 -- require("plugins.treesitter")
 -- require("plugins.twilight")
 -- require("plugins.which-key")
