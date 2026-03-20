@@ -59,6 +59,7 @@ require("config.theme")
 require("config.mappings")
 require("config.options")
 require("config.autocmd")
+require("config.clipboard")
 
 require("plugins.alpha")
 -- require("plugins.autopairs")

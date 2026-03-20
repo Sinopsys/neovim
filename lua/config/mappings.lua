@@ -37,10 +37,10 @@ map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
-map("n", "<F5>", ":resize +2<CR>")
-map("n", "<F6>", ":resize -2<CR>")
-map("n", "<F7>", ":vertical resize +2<CR>")
-map("n", "<F8>", ":vertical resize -2<CR>")
+-- map("n", "<F5>", ":resize +2<CR>")
+-- map("n", "<F6>", ":resize -2<CR>")
+-- map("n", "<F7>", ":vertical resize +2<CR>")
+-- map("n", "<F8>", ":vertical resize -2<CR>")
 
 -- fzf and grep
 map("n", "<leader>f", ":lua require('fzf-lua').files()<CR>") --search cwd
